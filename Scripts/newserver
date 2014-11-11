@@ -1,0 +1,2 @@
+#!/bin/bash
+cp -rf /root/Cerulean/Scripts/TEMPLATE /root/Cerulean/servers/$1

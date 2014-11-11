@@ -1,0 +1,2 @@
+#!/bin/bash
+cd /root/Cerulean/servers/$1 && screen -dmS $1 java -Xmx300M -jar spigot.jar

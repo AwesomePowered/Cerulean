@@ -1,0 +1,3 @@
+#!/bin/bash
+zip -r $1.zip ../servers
+mysqldump -u winnerwinner -pchickendinner --all-databases > $1.sql
