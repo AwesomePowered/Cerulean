@@ -1,0 +1,8 @@
+name: Cerulean
+version: 0.1
+main: net.awesomepowered.bukkit.cerulean.Cerulean
+author: LaxWasHere
+commands:
+    cerulean:
+    blue:
+    gcerulean:
