@@ -1,5 +1,8 @@
+
 Cerulean
 =======
+See it in action at Cerulean.PoweredByAwesome.net
+------
      Cerulean allows you to create a minecraft server within your server network by utilizing the amazing BungeeCord.
      Each player who created a server has full control of the server (OP).
      Made with love by @LaxWasHere for http://PoweredByAwesome.net
