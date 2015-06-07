@@ -2,7 +2,6 @@ package net.awesomepowered.bukkit.cerulean;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -55,7 +54,7 @@ public class BlueUtils {
 
     public void addBungeeServer(Player p) {
         UUID playerID = p.getUniqueId();
-        bungeeFile = new File("/root/Cerulean/Bungee/config.yml");
+        bungeeFile = new File(Cerulean.getInstance().bungeeConfigLocation);
         bungeeConfig = new YamlConfiguration();
         try {
             int port = Cerulean.getPort();
@@ -78,7 +77,7 @@ public class BlueUtils {
     public void copyNewServer(Player p) {
         try {
             sM(p, "&3Copying server from template");
-            Runtime.getRuntime().exec("/root/Cerulean/Scripts/newserver " + p.getUniqueId().toString());
+            Runtime.getRuntime().exec(Cerulean.getInstance().scriptsDirectory+ "newserver " + p.getUniqueId().toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -90,12 +89,12 @@ public class BlueUtils {
                 sM(p, "&3Setting up your server config");
                 try {
                     //load the file
-                    FileInputStream in = new FileInputStream("/root/Cerulean/servers/"+p.getUniqueId()+"/server.properties");
+                    FileInputStream in = new FileInputStream(Cerulean.getInstance().playerServerDirectory.replace("%PLAYER", p.getUniqueId().toString()));
                     Properties prop = new Properties();
                     prop.load(in);
                     in.close();
                     // set file properties and save
-                    FileOutputStream out = new FileOutputStream("/root/Cerulean/servers/"+p.getUniqueId()+"/server.properties");
+                    FileOutputStream out = new FileOutputStream(Cerulean.getInstance().playerServerDirectory.replace("%PLAYER", p.getUniqueId().toString()));
                     prop.setProperty("server-port", String.valueOf(port));
                     prop.store(out, null);
                     out.close();
@@ -138,7 +137,7 @@ public class BlueUtils {
             public void run() {
                 try {
                     String playerID = p.getUniqueId().toString();
-                    Runtime.getRuntime().exec("/root/Cerulean/Scripts/startserver " + playerID);
+                    Runtime.getRuntime().exec(Cerulean.getInstance().scriptsDirectory + "startserver " + playerID);
                     System.out.println("Started server of " + p.getName());
                     log2File("ServerStarts.txt", p.getName()+" "+System.currentTimeMillis()/1000);
                     Cerulean.getInstance().sendPlayer(p, p.getUniqueId().toString(), 200);
@@ -153,7 +152,7 @@ public class BlueUtils {
     public void startServer(final UUID uuid, final Player p) {
         try {
             String target = Cerulean.getInstance().getConfig().getString("Players."+uuid+".Name");
-            Runtime.getRuntime().exec("/root/Cerulean/Scripts/startserver " + uuid);
+            Runtime.getRuntime().exec(Cerulean.getInstance().scriptsDirectory + "startserver " + uuid);
             System.out.println("Started server of " + target + " for " + p.getName());
             log2File("ServerStarts.txt", target + " " + p.getName() + " " + System.currentTimeMillis()/1000);
             Cerulean.getInstance().sendPlayer(p, uuid.toString(), 200);

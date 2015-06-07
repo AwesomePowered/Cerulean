@@ -1,2 +1,5 @@
-CurrentPort: 5000
+CurrentPort: 7000
+PlayerServerDirectory: '/root/Cerulean/servers/%PLAYER/server.properties'
+BungeeConfigLocation: '/root/Cerulean/Bungee/config.yml'
+ScriptsDirectory: '/root/Cerulean/Scripts/'
 ActivePlayers:

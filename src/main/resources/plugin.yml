@@ -1,5 +1,5 @@
 name: Cerulean
-version: 0.1
+version: 0.2
 main: net.awesomepowered.bukkit.cerulean.Cerulean
 author: LaxWasHere
 commands:

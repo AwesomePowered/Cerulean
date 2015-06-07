@@ -1,0 +1,6 @@
+name: Cerulean
+version: 0.1
+main: net.awesomepowered.bungee.cerulean.Cerulean
+author: LaxWasHere
+commands:
+    gcerulean:

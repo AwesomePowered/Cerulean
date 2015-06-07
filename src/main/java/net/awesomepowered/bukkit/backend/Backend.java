@@ -28,7 +28,7 @@ public class Backend extends JavaPlugin {
             @Override
             public void run() {
                 if (Bukkit.getOnlinePlayers().size() == 0) {
-                    System.out.println("No players logged in for 90 seconds, shutting down.");
+                    System.out.println("No players logged in in 90 seconds, shutting down.");
                     Bukkit.shutdown();
                 }
             }

